@@ -14,7 +14,7 @@ readme = "./README.md"
 
 [dependencies]
 yrs-kvstore = { version = "0.2", path = "../yrs-kvstore" }
-rocksdb = { version = "0.21" }
+rocksdb = { version = "0.22" }
 
 [dev-dependencies]
 yrs = "0.18"
