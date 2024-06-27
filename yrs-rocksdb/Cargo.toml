@@ -14,7 +14,7 @@ readme = "./README.md"
 
 [dependencies]
 yrs-kvstore = { version = "0.2", path = "../yrs-kvstore" }
-rocksdb = { version = "0.21" }
+rocksdb = { git = "https://github.com/rust-rocksdb/rust-rocksdb", rev = "1cf906dc4087f06631820f13855e6b27bd21b972" }
 
 [dev-dependencies]
 yrs = "0.18"
