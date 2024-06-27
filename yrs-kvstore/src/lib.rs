@@ -382,10 +382,15 @@ where
            Use 00{0000}0 to try to move cursor to GTE first document, then move cursor 1 position
            back to get the latest OID or not found.
         */
-        let last_oid = if let Some(e) = db.peek_back([V1, KEYSPACE_DOC].as_ref())? {
-            let value = e.value();
-            let last_value = OID::from_be_bytes(value.try_into().unwrap());
-            last_value
+        let last_oid = if let Some(e) = db.peek_back([V1, 2].as_ref())? {
+            let key = e.key();
+            if key.len() >= 6 {
+                let value = &key[2..6];
+                let last_value = OID::from_be_bytes(value.try_into().unwrap());
+                last_value
+            } else {
+                0
+            }
         } else {
             0
         };
